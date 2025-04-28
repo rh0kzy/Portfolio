@@ -446,6 +446,7 @@
             color: white;
             font-size: 1.5rem;
             transition: var(--transition);
+            text-decoration: none;
         }
 
         .social-links a:hover {
@@ -871,11 +872,10 @@
     <section id="contact" class="contact">
         <h2>Me Contacter</h2>
         <div class="contact-container">
-            <form id="contact-form" action="https://wa.me/213699284128" method="get" target="_blank">
+            <form id="contact-form" action="mailto:aymenbelkadi1012005@gmail.com" method="post" enctype="text/plain">
                 <input type="text" name="name" placeholder="Votre Nom" required>
-                <input type="email" name="email" placeholder="Votre Email" required>
                 <textarea name="message" placeholder="Votre Message" required></textarea>
-                <button type="submit" class="submit-button">Envoyer via WhatsApp</button>
+                <button type="submit" class="submit-button">Envoyer via Gmail</button>
             </form>
         </div>
     </section>
@@ -883,43 +883,13 @@
     <!-- Footer -->
     <footer>
         <div class="social-links">
-            <a href="https://github.com/rh0kzy" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://wa.me/213699284128" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://github.com/rh0kzy" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="mailto:aymenbelkadi1012005@gmail.com"><i class="fas fa-envelope"></i> aymenbelkadi1012005@gmail.com</a>
         </div>
         <p>&copy; 2025 Aymen Belkadi. Tous droits réservés.</p>
     </footer>
 
     <script src="script.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            // Votre clé publique EmailJS (à remplacer après création du compte)
-            emailjs.init("VOTRE_CLE_PUBLIQUE");
-        })();
-    </script>
-    <script>
-        // Configuration du formulaire WhatsApp
-        const contactForm = document.getElementById('contact-form');
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = this.querySelector('input[name="name"]').value;
-            const email = this.querySelector('input[name="email"]').value;
-            const message = this.querySelector('textarea[name="message"]').value;
-            
-            // Construire le message WhatsApp
-            const whatsappMessage = `Nouveau message de ${name} (${email}):\n\n${message}`;
-            
-            // Encoder le message pour l'URL
-            const encodedMessage = encodeURIComponent(whatsappMessage);
-            
-            // Ouvrir WhatsApp avec le message pré-rempli
-            window.open(`https://wa.me/213699284128?text=${encodedMessage}`, '_blank');
-            
-            // Réinitialiser le formulaire
-            this.reset();
-        });
-    </script>
     <script>
         const hamburger = document.querySelector('.hamburger');
         const mobileMenu = document.getElementById('mobile-menu');
