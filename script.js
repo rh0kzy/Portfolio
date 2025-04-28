@@ -1,17 +1,37 @@
 // Mobile Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
+const navbar = document.querySelector('.navbar');
+const mobileMenu = document.getElementById('mobile-menu');
 
 hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('nav-active');
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
 });
 
 // Close menu when a nav link is clicked (on mobile)
-document.querySelectorAll('.nav-links li a').forEach(link => {
-    link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
-            navLinks.classList.remove('nav-active');
+document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        mobileMenu.classList.remove('open');
+        
+        // Get the target section
+        const targetId = link.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        
+        if (targetSection) {
+            // Add a small delay to allow the mobile menu to close first
+            setTimeout(() => {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }, 300);
         }
+        
+        // Prevent default behavior
+        e.preventDefault();
     });
 });
 
@@ -26,13 +46,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
         }
     });
-});
-
-// Add scroll event listener for navbar
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    const cardBg = getComputedStyle(document.documentElement).getPropertyValue('--card-bg');
-    navbar.style.backgroundColor = cardBg;
 });
 
 // Add animation to skill cards when they come into view
@@ -56,30 +69,47 @@ skillCards.forEach(card => {
     observer.observe(card);
 });
 
-// Dark/Light mode toggle
+// Dark/Light mode toggle - Improved version
 document.addEventListener('DOMContentLoaded', function() {
+  // Get the theme switch element
   const themeSwitch = document.querySelector('.switch .input');
   const rootElement = document.documentElement;
-
-  // Load theme from localStorage
-  let savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark') {
-    rootElement.setAttribute('data-theme', 'dark');
-    if (themeSwitch) themeSwitch.checked = true;
-  } else {
-    rootElement.setAttribute('data-theme', 'light');
-    if (themeSwitch) themeSwitch.checked = false;
+  
+  // Function to set theme
+  function setTheme(theme) {
+    rootElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    
+    // Update the switch state
+    if (themeSwitch) {
+      themeSwitch.checked = (theme === 'dark');
+    }
+    
+    // Log for debugging
+    console.log('Theme set to:', theme);
   }
-
+  
+  // Load theme from localStorage
+  let savedTheme = localStorage.getItem('theme') || 'light';
+  setTheme(savedTheme);
+  
+  // Add event listener to the switch
   if (themeSwitch) {
     themeSwitch.addEventListener('change', function() {
-      if (this.checked) {
-        rootElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        rootElement.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
-      }
+      const newTheme = this.checked ? 'dark' : 'light';
+      setTheme(newTheme);
     });
+    
+    // Log for debugging
+    console.log('Theme switch event listener added');
+  } else {
+    console.error('Theme switch element not found');
   }
+  
+  // Add a manual toggle function for testing
+  window.toggleTheme = function() {
+    const currentTheme = rootElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+  };
 }); 

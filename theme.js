@@ -7,10 +7,11 @@ function toggleTheme() {
     // Mettre à jour l'attribut data-theme
     html.setAttribute('data-theme', newTheme);
     
-    // Mettre à jour l'icône
-    const themeToggle = document.getElementById('themeToggle');
-    const icon = themeToggle.querySelector('i');
-    icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    // Mettre à jour le switch
+    const themeSwitch = document.querySelector('.switch .input');
+    if (themeSwitch) {
+        themeSwitch.checked = newTheme === 'dark';
+    }
     
     // Sauvegarder la préférence dans le localStorage
     localStorage.setItem('theme', newTheme);
@@ -22,11 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const html = document.documentElement;
     html.setAttribute('data-theme', savedTheme);
     
-    // Mettre à jour l'icône
-    const themeToggle = document.getElementById('themeToggle');
-    const icon = themeToggle.querySelector('i');
-    icon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-    
-    // Ajouter l'événement click au bouton
-    themeToggle.addEventListener('click', toggleTheme);
+    // Mettre à jour le switch
+    const themeSwitch = document.querySelector('.switch .input');
+    if (themeSwitch) {
+        themeSwitch.checked = savedTheme === 'dark';
+        themeSwitch.addEventListener('change', toggleTheme);
+    }
 }); 
