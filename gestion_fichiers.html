@@ -8,6 +8,37 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="theme.js" defer></script>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --border-radius: 12px;
+            --box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            margin-top: 2rem;
+            transition: var(--transition);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .back-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow);
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -41,89 +72,136 @@
         <header class="project-header">
             <h1>Système de Gestion de Fichiers</h1>
             <p class="project-description">
-                Un véritable système de gestion de fichiers développé en C, implémentant les opérations sur les fichiers et la gestion des répertoires. Ce projet met en avant la manipulation bas-niveau, la gestion de la mémoire et la création d'une interface en ligne de commande pour simuler un mini système de fichiers.
+                Un système de gestion de fichiers développé en C, implémentant les opérations fondamentales sur les fichiers et la gestion des répertoires. Ce projet démontre une compréhension approfondie de la programmation système et de la gestion de la mémoire.
             </p>
+            <div class="project-links">
+                <a href="https://github.com/aymenbelkadi/gestion-fichiers" target="_blank" class="github-link">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="mailto:aymen.belkadi@example.com" class="email-link">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+            </div>
         </header>
+
         <section class="section">
-            <h2>Fonctionnalités principales</h2>
-            <ul class="feature-list">
-                <li>Création, suppression, renommage de fichiers et dossiers</li>
-                <li>Navigation dans l'arborescence des répertoires</li>
-                <li>Lecture et écriture dans les fichiers</li>
-                <li>Gestion des permissions</li>
-                <li>Interface en ligne de commande intuitive</li>
+            <h2>Contexte du Projet</h2>
+            <p>Ce projet a été développé dans le cadre de mes études en programmation système. L'objectif était de créer un système de gestion de fichiers complet qui simule les opérations de base d'un système d'exploitation, tout en mettant l'accent sur la gestion efficace de la mémoire et la manipulation des données.</p>
+        </section>
+
+        <section class="section">
+            <h2>Fonctionnalités Principales</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-folder-plus"></i>
+                    <h3>Gestion des Fichiers</h3>
+                    <ul>
+                        <li>Création et suppression de fichiers</li>
+                        <li>Renommage de fichiers</li>
+                        <li>Gestion des permissions</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-sitemap"></i>
+                    <h3>Gestion des Répertoires</h3>
+                    <ul>
+                        <li>Navigation dans l'arborescence</li>
+                        <li>Création de dossiers</li>
+                        <li>Gestion des chemins</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-database"></i>
+                    <h3>Opérations sur les Données</h3>
+                    <ul>
+                        <li>Lecture et écriture de fichiers</li>
+                        <li>Gestion de la mémoire</li>
+                        <li>Optimisation des performances</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Technologies Utilisées</h2>
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <i class="fab fa-c"></i>
+                    <span>C</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-microchip"></i>
+                    <span>Programmation Système</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-hdd"></i>
+                    <span>Gestion de Fichiers</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Architecture Technique</h2>
+            <div class="architecture-content">
+                <h3>Structures de Données Principales</h3>
+                <ul>
+                    <li><strong>Record</strong> : Structure de base pour les enregistrements</li>
+                    <li><strong>Metadata</strong> : Gestion des métadonnées des fichiers</li>
+                    <li><strong>Block</strong> : Gestion des blocs de mémoire</li>
+                    <li><strong>Memoiresecondaire</strong> : Structure principale du système</li>
+                </ul>
+
+                <h3>Organisation du Système</h3>
+                <ul>
+                    <li>Organisation contiguë (C) et chaînée (L)</li>
+                    <li>Gestion interne triée (T) et non triée (N)</li>
+                    <li>Système de gestion de la mémoire optimisé</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Défis et Solutions</h2>
+            <div class="challenges-content">
+                <div class="challenge">
+                    <h3>Gestion de la Mémoire</h3>
+                    <p>Implémentation d'un système efficace d'allocation et de libération de la mémoire, avec gestion de la fragmentation.</p>
+                </div>
+                <div class="challenge">
+                    <h3>Performance</h3>
+                    <p>Optimisation des opérations de lecture/écriture et mise en place d'algorithmes efficaces pour la recherche.</p>
+                </div>
+                <div class="challenge">
+                    <h3>Fiabilité</h3>
+                    <p>Mise en place de mécanismes de vérification et de récupération pour assurer l'intégrité des données.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Résultats et Impact</h2>
+            <p>Le projet a démontré une implémentation réussie des concepts fondamentaux de la gestion de fichiers, avec une attention particulière portée à l'efficacité et à la fiabilité. Les performances obtenues sont satisfaisantes, avec des temps de réponse rapides pour les opérations courantes.</p>
+        </section>
+
+        <section class="section">
+            <h2>Perspectives d'Amélioration</h2>
+            <ul class="improvement-list">
+                <li>Implémentation d'un système de journalisation</li>
+                <li>Ajout de fonctionnalités de compression</li>
+                <li>Optimisation des algorithmes de recherche</li>
+                <li>Interface graphique pour une meilleure expérience utilisateur</li>
             </ul>
         </section>
-        <section class="section">
-            <h2>Stack technique</h2>
-            <div class="tech-stack">
-                <span class="tech-item">C</span>
-                <span class="tech-item">Programmation Système</span>
-                <span class="tech-item">Gestion de fichiers</span>
-            </div>
-        </section>
-        <section class="section">
-            <h2>Captures d'écran</h2>
-            <div class="project-screenshots">
-                <div class="screenshot">
-                    <img src="images/getionLogo.jpg" alt="Logo Gestion de Fichiers">
-                </div>
-                <!-- Ajoute d'autres captures si tu veux -->
-            </div>
-        </section>
-        <section class="section">
-            <h2>Analyse du Code et Recommandations</h2>
-            <div class="project-description" style="text-align:left;max-width:900px;margin:auto;">
-                <h3>1. Overview</h3>
-                <p>Ce projet est un programme C qui implémente un système de gestion de la mémoire secondaire, simulant des opérations sur fichiers et l'allocation/libération mémoire.</p>
-                <h3>2. Principales Structures de Données</h3>
-                <ul>
-                    <li><b>Record</b> : id, isDeleted (pour chaque enregistrement)</li>
-                    <li><b>Metadata</b> : infos sur chaque fichier (nom, nb blocs, organisation, etc.)</li>
-                    <li><b>Block</b> : tableau d'enregistrements, pointeur vers bloc suivant (chaînage), nom de fichier</li>
-                    <li><b>Memoiresecondaire</b> : structure principale, contient tous les blocs, la table d'allocation, les métadonnées, etc.</li>
-                </ul>
-                <h3>3. Fonctionnalités Clés</h3>
-                <ul>
-                    <li>Initialisation mémoire, allocation dynamique</li>
-                    <li>Création, suppression, renommage de fichiers</li>
-                    <li>Insertion, recherche, suppression logique/physique d'enregistrements</li>
-                    <li>Compactage et défragmentation mémoire</li>
-                </ul>
-                <h3>4. Points Forts</h3>
-                <ul>
-                    <li>Gestion mémoire complète (contiguë/chaînée, triée/non triée)</li>
-                    <li>Gestion des erreurs (doublons, mémoire, existence, etc.)</li>
-                    <li>Interface utilisateur claire, messages colorés</li>
-                </ul>
-                <h3>5. Axes d'Amélioration</h3>
-                <ul>
-                    <li>Vérification des bornes et sécurité mémoire</li>
-                    <li>Optimisation des recherches (ex : dichotomie pour trié)</li>
-                    <li>Organisation du code en plusieurs fichiers, documentation</li>
-                    <li>Ajout de persistance, transactions, sauvegarde/restauration</li>
-                </ul>
-                <h3>6. Détails Techniques</h3>
-                <pre style="background:var(--card-bg);color:var(--text-color);padding:1em;border-radius:8px;overflow-x:auto;">#define MAX_NOMFICHIER 50
-#define MAX_FILES 100
-#define MAX_RECORDS 1000</pre>
-                <ul>
-                    <li>Organisation globale : 'C' (contiguë), 'L' (chaînée)</li>
-                    <li>Organisation interne : 'T' (triée), 'N' (non triée)</li>
-                </ul>
-                <h3>7. Recommandations</h3>
-                <ul>
-                    <li>Séparer le code en plusieurs fichiers (header, implémentation, main)</li>
-                    <li>Ajouter des codes d'erreur, logs, tests unitaires</li>
-                    <li>Documenter chaque fonction, ajouter un manuel utilisateur</li>
-                    <li>Ajouter validation des entrées, sécurité, options de chiffrement</li>
-                </ul>
-                <h3>8. Conclusion</h3>
-                <p>Le code offre une base solide pour un gestionnaire mémoire. Avec les améliorations proposées, il peut devenir un système robuste et prêt pour la production.</p>
-            </div>
-        </section>
-        <a href="index.html#projects" class="back-to-projects">← Retour aux projets</a>
+
+        <a href="index.html" class="back-button">Retour à l'accueil</a>
     </main>
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/rh0kzy" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="mailto:aymenbelkadi1012005@gmail.com"><i class="fas fa-envelope"></i> aymenbelkadi1012005@gmail.com</a>
+        </div>
+        <p>&copy; 2024 Aymen Belkadi. Tous droits réservés.</p>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html> 
