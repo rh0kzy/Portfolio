@@ -454,6 +454,17 @@
             transform: translateY(-3px);
         }
 
+        @media (max-width: 600px) {
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            .social-links a {
+                font-size: 1.2rem;
+            }
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -897,8 +908,8 @@
     <!-- Footer -->
     <footer>
         <div class="social-links">
-            <a href="https://github.com/rh0kzy" target="_blank"><i class="fab fa-github"></i> GitHub</a>
             <a href="mailto:aymenbelkadi1012005@gmail.com"><i class="fas fa-envelope"></i> aymenbelkadi1012005@gmail.com</a>
+            <a href="https://github.com/rh0kzy" target="_blank"><i class="fab fa-github"></i> GitHub</a>
         </div>
         <p>&copy; 2025 Aymen Belkadi. Tous droits réservés.</p>
     </footer>
