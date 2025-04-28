@@ -58,9 +58,9 @@
         }
 
         .navbar-center {
+            flex: 1;
             display: flex;
-            gap: 2rem;
-            list-style: none;
+            justify-content: center;
         }
 
         .navbar-right {
@@ -81,6 +81,14 @@
             display: flex;
             gap: 2rem;
             list-style: none;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin: 0;
+            padding: 0;
         }
 
         .nav-links a {
@@ -89,6 +97,11 @@
             font-weight: 500;
             position: relative;
             padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
         }
 
         .nav-links a::after {
@@ -99,7 +112,7 @@
             width: 0;
             height: 2px;
             background: var(--primary-color);
-            transition: var(--transition);
+            transition: width 0.3s ease;
         }
 
         .nav-links a:hover::after {
@@ -488,6 +501,116 @@
             .skills-container {
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
+
+            .mobile-menu {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 250px;
+                height: calc(100vh - 70px);
+                background: var(--card-bg, #fff);
+                box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+                flex-direction: column;
+                padding: 2rem 1rem;
+                z-index: 2000;
+                animation: slideInLeft 0.3s ease;
+            }
+
+            @keyframes slideInLeft {
+                from {
+                    transform: translateX(-100%);
+                }
+                to {
+                    transform: translateX(0);
+                }
+            }
+
+            .mobile-menu.open {
+                display: flex;
+            }
+
+            .mobile-menu a {
+                color: var(--text-color);
+                text-decoration: none;
+                font-size: 1.1rem;
+                padding: 1rem 1.5rem;
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+                transition: all 0.3s ease;
+            }
+
+            .mobile-menu a:hover {
+                background: var(--primary-color);
+                color: white;
+                padding-left: 2rem;
+            }
+
+            .mobile-menu a:last-child {
+                border-bottom: none;
+            }
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1100;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .mobile-menu {
+                display: none;
+                position: fixed;
+                top: 70px;
+                right: 0;
+                width: 70vw;
+                background: var(--card-bg, #fff);
+                box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+                flex-direction: column;
+                padding: 2rem 1.5rem;
+                z-index: 2000;
+                border-radius: 0 0 0 20px;
+                animation: fadeInUp 0.3s;
+            }
+            .mobile-menu.open {
+                display: flex;
+            }
+            .mobile-menu a {
+                color: var(--text-color);
+                text-decoration: none;
+                font-size: 1.2rem;
+                margin-bottom: 1.5rem;
+                font-weight: 500;
+            }
+            .mobile-menu a:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
         }
     </style>
 </head>
@@ -520,6 +643,15 @@
             </div>
         </div>
     </nav>
+
+    <!-- After the nav-links ul, add the mobile menu container -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#home">Accueil</a>
+        <a href="#about">À propos</a>
+        <a href="#skills">Compétences</a>
+        <a href="#projects">Projets</a>
+        <a href="#contact">Contact</a>
+    </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -647,7 +779,7 @@
             <a href="https://github.com/rh0kzy" target="_blank"><i class="fab fa-github"></i></a>
             <a href="https://wa.me/213699284128" target="_blank"><i class="fab fa-whatsapp"></i></a>
         </div>
-        <p>&copy; 2024 Aymen Belkadi. Tous droits réservés.</p>
+        <p>&copy; 2025 Aymen Belkadi. Tous droits réservés.</p>
     </footer>
 
     <script src="script.js"></script>
@@ -679,6 +811,23 @@
             
             // Réinitialiser le formulaire
             this.reset();
+        });
+    </script>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            hamburger.classList.toggle('open');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                hamburger.classList.remove('open');
+            });
         });
     </script>
 </body>

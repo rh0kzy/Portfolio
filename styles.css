@@ -89,6 +89,12 @@ body {
     box-shadow: 0 2px 5px var(--shadow-color);
     z-index: 1000;
     color: var(--text-color) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar:hover {
+    transform: translateY(5px);
+    box-shadow: 0 8px 15px var(--shadow-color);
 }
 
 .navbar-left {
@@ -118,11 +124,35 @@ body {
 }
 
 .nav-links {
-    display: flex;
+    display: none;
     list-style: none;
     gap: 2rem;
     margin: 0;
     padding: 0;
+    flex-direction: column;
+}
+
+.nav-links.nav-active {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--card-bg);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    box-shadow: 0 8px 30px var(--shadow-color);
+    transform: translateY(-100%);
+    animation: navPopDown 0.4s forwards cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes navPopDown {
+    from { transform: translateY(-100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 .nav-links li a {
