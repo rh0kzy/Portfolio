@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Système de Gestion de Fichiers - Aymen Belkadi</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <div class="nav-brand">Portfolio</div>
+        </div>
+        <div class="navbar-center">
+            <ul class="nav-links">
+                <li><a href="index.html#home">Accueil</a></li>
+                <li><a href="index.html#about">À propos</a></li>
+                <li><a href="index.html#skills">Compétences</a></li>
+                <li><a href="index.html#projects">Projets</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="navbar-right">
+            <label class="switch">
+              <span class="sun"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="#ffd43b"><circle r="5" cy="12" cx="12"></circle><path d="m21 13h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm-17 0h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm13.66-5.66a1 1 0 0 1 -.66-.29 1 1 0 0 1 0-1.41l.71-.71a1 1 0 1 1 1.41 1.41l-.71.71a1 1 0 0 1 -.75.29zm-12.02 12.02a1 1 0 0 1 -.71-.29 1 1 0 0 1 0-1.41l.71-.66a1 1 0 0 1 1.41 1.41l-.71.71a1 1 0 0 1 -.7.24zm6.36-14.36a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm0 17a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm-5.66-14.66a1 1 0 0 1 -.7-.29l-.71-.71a1 1 0 0 1 1.41-1.41l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.29zm12.02 12.02a1 1 0 0 1 -.7-.29l-.66-.71a1 1 0 0 1 1.36-1.36l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.24z"></path></g></svg></span>
+              <span class="moon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="m223.5 32c-123.5 0-223.5 100.3-223.5 224s100 224 223.5 224c60.6 0 115.5-24.2 155.8-63.4 5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6-96.9 0-175.5-78.8-175.5-176 0-65.8 36-123.1 89.3-153.3 6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"></path></svg></span>   
+              <input type="checkbox" class="input">
+              <span class="slider"></span>
+            </label>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <main class="project-detail-page">
+        <header class="project-header">
+            <h1>Système de Gestion de Fichiers</h1>
+            <p class="project-description">
+                Un véritable système de gestion de fichiers développé en C, implémentant les opérations sur les fichiers et la gestion des répertoires. Ce projet met en avant la manipulation bas-niveau, la gestion de la mémoire et la création d'une interface en ligne de commande pour simuler un mini système de fichiers.
+            </p>
+        </header>
+        <section class="section">
+            <h2>Fonctionnalités principales</h2>
+            <ul class="feature-list">
+                <li>Création, suppression, renommage de fichiers et dossiers</li>
+                <li>Navigation dans l'arborescence des répertoires</li>
+                <li>Lecture et écriture dans les fichiers</li>
+                <li>Gestion des permissions</li>
+                <li>Interface en ligne de commande intuitive</li>
+            </ul>
+        </section>
+        <section class="section">
+            <h2>Stack technique</h2>
+            <div class="tech-stack">
+                <span class="tech-item">C</span>
+                <span class="tech-item">Programmation Système</span>
+                <span class="tech-item">Gestion de fichiers</span>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Captures d'écran</h2>
+            <div class="project-screenshots">
+                <div class="screenshot">
+                    <img src="getionLogo.jpg" alt="Logo Gestion de Fichiers">
+                </div>
+                <!-- Ajoute d'autres captures si tu veux -->
+            </div>
+        </section>
+        <section class="section">
+            <h2>Analyse du Code et Recommandations</h2>
+            <div class="project-description" style="text-align:left;max-width:900px;margin:auto;">
+                <h3>1. Overview</h3>
+                <p>Ce projet est un programme C qui implémente un système de gestion de la mémoire secondaire, simulant des opérations sur fichiers et l'allocation/libération mémoire.</p>
+                <h3>2. Principales Structures de Données</h3>
+                <ul>
+                    <li><b>Record</b> : id, isDeleted (pour chaque enregistrement)</li>
+                    <li><b>Metadata</b> : infos sur chaque fichier (nom, nb blocs, organisation, etc.)</li>
+                    <li><b>Block</b> : tableau d'enregistrements, pointeur vers bloc suivant (chaînage), nom de fichier</li>
+                    <li><b>Memoiresecondaire</b> : structure principale, contient tous les blocs, la table d'allocation, les métadonnées, etc.</li>
+                </ul>
+                <h3>3. Fonctionnalités Clés</h3>
+                <ul>
+                    <li>Initialisation mémoire, allocation dynamique</li>
+                    <li>Création, suppression, renommage de fichiers</li>
+                    <li>Insertion, recherche, suppression logique/physique d'enregistrements</li>
+                    <li>Compactage et défragmentation mémoire</li>
+                </ul>
+                <h3>4. Points Forts</h3>
+                <ul>
+                    <li>Gestion mémoire complète (contiguë/chaînée, triée/non triée)</li>
+                    <li>Gestion des erreurs (doublons, mémoire, existence, etc.)</li>
+                    <li>Interface utilisateur claire, messages colorés</li>
+                </ul>
+                <h3>5. Axes d'Amélioration</h3>
+                <ul>
+                    <li>Vérification des bornes et sécurité mémoire</li>
+                    <li>Optimisation des recherches (ex : dichotomie pour trié)</li>
+                    <li>Organisation du code en plusieurs fichiers, documentation</li>
+                    <li>Ajout de persistance, transactions, sauvegarde/restauration</li>
+                </ul>
+                <h3>6. Détails Techniques</h3>
+                <pre style="background:var(--card-bg);color:var(--text-color);padding:1em;border-radius:8px;overflow-x:auto;">#define MAX_NOMFICHIER 50
+#define MAX_FILES 100
+#define MAX_RECORDS 1000</pre>
+                <ul>
+                    <li>Organisation globale : 'C' (contiguë), 'L' (chaînée)</li>
+                    <li>Organisation interne : 'T' (triée), 'N' (non triée)</li>
+                </ul>
+                <h3>7. Recommandations</h3>
+                <ul>
+                    <li>Séparer le code en plusieurs fichiers (header, implémentation, main)</li>
+                    <li>Ajouter des codes d'erreur, logs, tests unitaires</li>
+                    <li>Documenter chaque fonction, ajouter un manuel utilisateur</li>
+                    <li>Ajouter validation des entrées, sécurité, options de chiffrement</li>
+                </ul>
+                <h3>8. Conclusion</h3>
+                <p>Le code offre une base solide pour un gestionnaire mémoire. Avec les améliorations proposées, il peut devenir un système robuste et prêt pour la production.</p>
+            </div>
+        </section>
+        <a href="index.html#projects" class="back-to-projects">← Retour aux projets</a>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html> 

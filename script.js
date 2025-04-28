@@ -26,11 +26,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Add scroll event listener for navbar
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-    } else {
-        navbar.style.backgroundColor = '#fff';
-    }
+    const cardBg = getComputedStyle(document.documentElement).getPropertyValue('--card-bg');
+    navbar.style.backgroundColor = cardBg;
 });
 
 // Add animation to skill cards when they come into view
@@ -54,28 +51,30 @@ skillCards.forEach(card => {
     observer.observe(card);
 });
 
-// Theme Toggle Functionality
-const themeToggle = document.getElementById('themeToggle');
-const themeIcon = themeToggle.querySelector('i');
-const html = document.documentElement;
+// Dark/Light mode toggle
+document.addEventListener('DOMContentLoaded', function() {
+  const themeSwitch = document.querySelector('.switch .input');
+  const rootElement = document.documentElement;
 
-// Check for saved theme preference or use device preference
-const savedTheme = localStorage.getItem('theme');
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  // Load theme from localStorage
+  let savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    rootElement.setAttribute('data-theme', 'dark');
+    if (themeSwitch) themeSwitch.checked = true;
+  } else {
+    rootElement.setAttribute('data-theme', 'light');
+    if (themeSwitch) themeSwitch.checked = false;
+  }
 
-if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-    html.setAttribute('data-theme', 'dark');
-    themeIcon.classList.replace('fa-moon', 'fa-sun');
-}
-
-themeToggle.addEventListener('click', () => {
-    if (html.getAttribute('data-theme') === 'dark') {
-        html.removeAttribute('data-theme');
-        themeIcon.classList.replace('fa-sun', 'fa-moon');
-        localStorage.setItem('theme', 'light');
-    } else {
-        html.setAttribute('data-theme', 'dark');
-        themeIcon.classList.replace('fa-moon', 'fa-sun');
+  if (themeSwitch) {
+    themeSwitch.addEventListener('change', function() {
+      if (this.checked) {
+        rootElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
-    }
+      } else {
+        rootElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  }
 }); 
