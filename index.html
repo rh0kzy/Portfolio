@@ -2,7 +2,7 @@
 <html lang="fr" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Mon Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -493,6 +493,19 @@
                 padding: 1rem;
             }
 
+            .nav-content {
+                justify-content: flex-start;
+            }
+
+            .nav-brand {
+                margin-left: 1rem;
+            }
+
+            .hamburger {
+                display: flex;
+                margin-left: 1rem;
+            }
+
             .nav-links {
                 display: none;
             }
@@ -573,7 +586,7 @@
             display: block;
             width: 28px;
             height: 3px;
-            background: var(--secondary-color);
+            background: var(--text-color);
             border-radius: 2px;
             transition: 0.3s;
         }
@@ -584,6 +597,7 @@
             }
             .hamburger {
                 display: flex;
+                margin-left: 1rem;
             }
             .mobile-menu {
                 display: none;
