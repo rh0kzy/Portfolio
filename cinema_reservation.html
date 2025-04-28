@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservation de Cinéma - Aymen Belkadi</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --border-radius: 12px;
+            --box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .project-detail-page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeIn 1s ease;
+        }
+
+        .project-header h1 {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .project-content {
+            background: white;
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            animation: slideUp 0.8s ease;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.2s; }
+        .section:nth-child(2) { animation-delay: 0.4s; }
+        .section:nth-child(3) { animation-delay: 0.6s; }
+        .section:nth-child(4) { animation-delay: 0.8s; }
+
+        .section h2 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--primary-color);
+            font-weight: 600;
+            font-size: 1.8rem;
+        }
+
+        .feature-list, .sub-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .feature-list li, .sub-list li {
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            background: var(--background-color);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .feature-list li:hover, .sub-list li:hover {
+            transform: translateX(5px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .tech-item {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .tech-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .project-screenshots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .screenshot {
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .screenshot:hover {
+            transform: translateY(-5px);
+        }
+
+        .screenshot img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .screenshot:hover img {
+            transform: scale(1.05);
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            margin-top: 2rem;
+            transition: var(--transition);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .back-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        pre {
+            background: var(--background-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+
+        @media (max-width: 768px) {
+            .project-detail-page {
+                padding: 2rem 1rem;
+            }
+
+            .project-content {
+                padding: 2rem;
+            }
+
+            .project-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <nav class="navbar">
+        <div class="nav-brand">Portfolio</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="index.html#about">À propos</a></li>
+            <li><a href="index.html#projects">Projets</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="project-detail-page">
+        <div class="project-header">
+            <h1>Réservation de Cinéma</h1>
+            <p class="tech-stack">
+                <span class="tech-item">Java</span>
+                <span class="tech-item">JavaFX</span>
+                <span class="tech-item">SQL</span>
+                <span class="tech-item">JDBC</span>
+            </p>
+        </div>
+        <div class="project-screenshots">
+            <div class="screenshot"><img src="cinema1.png" alt="Interface principale"></div>
+            <div class="screenshot"><img src="cinema2.png" alt="Sélection des sièges"></div>
+            <div class="screenshot"><img src="cinema3.png" alt="Confirmation de réservation"></div>
+        </div>
+        <div class="project-content">
+            <div class="section">
+                <h2>Vue d'ensemble du Projet</h2>
+                <p>Un système complet de réservation de billets de cinéma développé en Java avec une interface graphique JavaFX et une base de données SQL. Le système permet aux utilisateurs de réserver des places pour différents films, avec gestion des séances et des paiements.</p>
+            </div>
+            <div class="section">
+                <h2>Structure du Projet</h2>
+                <ul class="feature-list">
+                    <li><strong>Architecture</strong>
+                        <ul class="sub-list">
+                            <li>Interface graphique : JavaFX</li>
+                            <li>Base de données : SQL</li>
+                            <li>Connexion : JDBC</li>
+                            <li>Gestion des données : Java</li>
+                        </ul>
+                    </li>
+                    <li><strong>Organisation des Dossiers</strong>
+                        <pre>src/
+├── model/             # Modèles de données
+├── view/             # Interface graphique
+├── controller/       # Gestion des interactions
+├── dao/              # Accès aux données
+├── utils/            # Utilitaires
+└── main/             # Point d'entrée</pre>
+                    </li>
+                </ul>
+            </div>
+            <div class="section">
+                <h2>Fonctionnalités Principales</h2>
+                <ul class="feature-list">
+                    <li>Gestion des films et des séances</li>
+                    <li>Sélection interactive des sièges</li>
+                    <li>Système de paiement intégré</li>
+                    <li>Gestion des utilisateurs et des réservations</li>
+                    <li>Interface administrateur</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h2>Technologies Utilisées</h2>
+                <ul class="feature-list">
+                    <li>Java pour le développement</li>
+                    <li>JavaFX pour l'interface graphique</li>
+                    <li>SQL pour la base de données</li>
+                    <li>JDBC pour la connexion</li>
+                    <li>Programmation Orientée Objet</li>
+                </ul>
+            </div>
+        </div>
+        <a href="index.html" class="back-button">Retour à l'accueil</a>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/rh0kzy" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://wa.me/213699284128" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p>&copy; 2024 Aymen Belkadi. Tous droits réservés.</p>
+    </footer>
+
+    <script src="theme.js"></script>
+</body>
+</html> 
